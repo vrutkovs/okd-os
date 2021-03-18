@@ -1,0 +1,11 @@
+name: Build machine-os-content
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Docker Image
+        run: docker build -t quay.io/vrutkovs/machine-os-content:okd-cosa-master .

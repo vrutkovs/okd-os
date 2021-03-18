@@ -5,7 +5,7 @@ FROM quay.io/coreos-assembler/coreos-assembler:latest AS build
 WORKDIR /src
 COPY . .
 COPY --from=mcd /usr/bin/machine-config-daemon /overrides/rootfs/usr/libexec/machine-config-daemon
-COPY --from=artifacts /srv/repo/*.rpm /overrides/rpms
+COPY --from=artifacts /srv/repo/*.rpm /overrides/rpms/
 RUN entrypoint.sh
 
 FROM scratch

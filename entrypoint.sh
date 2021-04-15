@@ -5,7 +5,7 @@ export COSA_SKIP_OVERLAY=1
 # tmpdir for cosa
 mkdir /tmp/cosa
 cd "/tmp/cosa"
-cosa init https://github.com/coreos/fedora-coreos-config --branch next-devel
+cosa init /src
 
 # Copy overrides
 cp -rvf /overrides/* ./overrides

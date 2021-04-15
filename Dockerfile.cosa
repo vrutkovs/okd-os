@@ -6,4 +6,5 @@ WORKDIR /src
 COPY . .
 COPY --from=mcd /usr/bin/machine-config-daemon /overrides/rootfs/usr/libexec/machine-config-daemon
 COPY --from=artifacts /srv/repo/*.rpm /overrides/rpms/
+LABEL foo bar
 ENTRYPOINT ["/src/entrypoint.sh"]

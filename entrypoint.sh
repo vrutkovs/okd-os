@@ -2,11 +2,7 @@
 set -exuo pipefail
 export COSA_SKIP_OVERLAY=1
 
-# tmpdir for cosa
-mkdir /tmp/cosa
-cd "/tmp/cosa"
-ls -la /src
-cosa init /src
+cosa init . --force
 
 # Copy overrides
 cp -rvf /overrides/* ./overrides

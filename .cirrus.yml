@@ -1,3 +1,9 @@
 only_if: $CIRRUS_BRANCH == "main"
+build_task:
+  container:
+    dockerfile: Dockerfile.cosa
+    kvm: true
+  test_script: /src/entrypoint.sh
 docker_builder:
-  build_script: docker build --device=/dev/kvm --tag myrepo/foo:latest .
+  depends_on:
+    - build

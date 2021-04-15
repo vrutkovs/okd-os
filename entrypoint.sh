@@ -3,7 +3,8 @@ set -exuo pipefail
 export COSA_SKIP_OVERLAY=1
 
 # tmpdir for cosa
-cd "$(mktemp -d)"
+mkdir /tmp/cosa
+cd "/tmp/cosa"
 cosa init https://github.com/coreos/fedora-coreos-config --branch next-devel
 
 # Copy overrides
@@ -12,3 +13,8 @@ cp -rvf /overrides/* ./overrides
 # build ostree commit
 cosa fetch --update-lockfile
 cosa build ostree
+
+echo "Building container"
+IMAGE="quay.io/vrutkovs/okd-os:${CIRRUS_CHANGE_IN_REPO}"
+cosa upload-oscontainer --name ${IMAGE}
+skopeo copy containers-storage://${IMAGE} docker://${IMAGE}

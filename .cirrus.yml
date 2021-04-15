@@ -4,6 +4,3 @@ build_task:
     dockerfile: Dockerfile.cosa
     kvm: true
   test_script: /src/entrypoint.sh
-docker_builder:
-  depends_on:
-    - build

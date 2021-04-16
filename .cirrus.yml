@@ -1,6 +1,11 @@
-only_if: $CIRRUS_BRANCH == "main"
+only_if: $CIRRUS_BRANCH == "cirrus"
+
+docker_builder:
+  name: Build
+  build_script: docker build --tag my-image:$CIRRUS_CHANGE_IN_REPO . -f Dockerfile.cosa
+
 build_task:
   container:
-    dockerfile: Dockerfile.cosa
+    image: my-image:$CIRRUS_CHANGE_IN_REPO
     kvm: true
   test_script: /src/entrypoint.sh

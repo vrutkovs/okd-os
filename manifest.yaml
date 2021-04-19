@@ -21,7 +21,7 @@ arch-include:
     - fedora-coreos-config/manifests/bootupd.yaml
 
 releasever: "34"
-ref: fedora/${basearch}/coreos/next-devel
+ref: fedora/${basearch}/coreos/okd
 repos:
   - fedora-next
   - crio

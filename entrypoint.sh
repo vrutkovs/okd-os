@@ -14,6 +14,7 @@ popd
 
 # build ostree commit
 cosa fetch --update-lockfile
+cosa buildprep https://builds.coreos.fedoraproject.org/prod/streams/next-devel/builds/
 cosa build ostree
 
 echo "Building container"

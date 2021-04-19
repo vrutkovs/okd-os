@@ -18,5 +18,5 @@ cosa build ostree
 
 echo "Building container"
 IMAGE="quay.io/vrutkovs/okd-os:${CIRRUS_CHANGE_IN_REPO}"
+echo ${QUAY_PASSWORD} | podman login --authfile=~/.docker/config.json quay.io --username "vrutkovs+cirrus" --password-stdin
 cosa upload-oscontainer --name ${IMAGE}
-skopeo copy containers-storage://${IMAGE} docker://${IMAGE}

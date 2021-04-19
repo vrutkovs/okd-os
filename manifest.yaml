@@ -23,8 +23,7 @@ arch-include:
 releasever: "34"
 ref: fedora/${basearch}/coreos/next-devel
 repos:
-  - fedora
-  - fedora-updates
+  - fedora-next
   - crio
   - okd-rpms
 

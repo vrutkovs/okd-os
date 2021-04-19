@@ -3,7 +3,7 @@ set -exuo pipefail
 export COSA_SKIP_OVERLAY=1
 
 IMAGE="quay.io/vrutkovs/okd-os:${CIRRUS_CHANGE_IN_REPO}"
-echo ${QUAY_PASSWORD} | podman login --authfile=~/.docker/config.json quay.io --username "vrutkovs+cirrus" --password-stdin
+echo ${QUAY_PASSWORD} | skopeo login --authfile=~/.docker/config.json quay.io --username "vrutkovs+cirrus" --password-stdin
 
 cosa init /src --force
 

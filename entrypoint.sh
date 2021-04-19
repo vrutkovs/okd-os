@@ -14,7 +14,7 @@ popd
 
 # build ostree commit
 cosa fetch --update-lockfile
-cosa build
+cosa build ostree
 
 echo "Building container"
 IMAGE="quay.io/vrutkovs/okd-os:${CIRRUS_CHANGE_IN_REPO}"

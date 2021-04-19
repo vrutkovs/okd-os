@@ -14,8 +14,7 @@ popd
 
 # build ostree commit
 cosa fetch --update-lockfile
-cosa buildprep https://builds.coreos.fedoraproject.org/prod/streams/next-devel/builds/
-cosa build ostree
+cosa build
 
 echo "Building container"
 IMAGE="quay.io/vrutkovs/okd-os:${CIRRUS_CHANGE_IN_REPO}"

@@ -1,6 +1,6 @@
 #!/bin/sh
 set -exuo pipefail
-export COSA_SKIP_OVERLAY=1
+# export COSA_SKIP_OVERLAY=1
 
 cosa init /src --force
 

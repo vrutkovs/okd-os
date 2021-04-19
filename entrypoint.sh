@@ -7,6 +7,11 @@ cosa init /src --force
 # Copy overrides
 cp -rvf /overrides/* ./overrides
 
+# Create repo in overrides
+pushd /srv/okd-repo
+  createrepo_c .
+popd
+
 # build ostree commit
 cosa fetch --update-lockfile
 cosa build ostree

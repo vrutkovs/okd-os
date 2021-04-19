@@ -4,7 +4,8 @@ FROM quay.io/openshift/origin-artifacts:4.8 as artifacts
 FROM quay.io/coreos-assembler/coreos-assembler:latest AS build
 WORKDIR /src
 COPY . .
+# Copy .git for submodule data
+COPY .git/ .
 COPY --from=mcd /usr/bin/machine-config-daemon /overrides/rootfs/usr/libexec/machine-config-daemon
 COPY --from=artifacts /srv/repo/*.rpm /overrides/rpms/
-LABEL foo bar
 ENTRYPOINT ["/src/entrypoint.sh"]

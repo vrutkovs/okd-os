@@ -2,7 +2,8 @@
 set -exuo pipefail
 export COSA_SKIP_OVERLAY=1
 
-cosa init . --force
+cd $(mktemp -d)
+cosa init /src --force
 
 # Copy overrides
 cp -rvf /overrides/* ./overrides

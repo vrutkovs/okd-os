@@ -13,7 +13,6 @@ releasever: "34"
 ref: fedora/${basearch}/coreos/okd
 repos:
   - fedora-next
-  - fedora-next-modular
   - crio
   - okd-rpms
 

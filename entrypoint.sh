@@ -21,4 +21,4 @@ cosa fetch --update-lockfile
 cosa build ostree
 
 echo "Building container"
-cosa upload-oscontainer --name ${IMAGE}
+cosa upload-oscontainer --name "quay.io/vrutkovs/okd-os"

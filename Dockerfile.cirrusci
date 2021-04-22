@@ -1,0 +1,12 @@
+FROM quay.io/vrutkovs/cirrus-run
+ARG CIRRUS_API_TOKEN
+WORKDIR /go/github.com/openshift/okd-machine-os
+COPY . .
+COPY .cirrus.yml .
+# Build Dockerfile.cosa in Cirrus CI, replace resulting image in Dockerfile
+RUN cirrus-run --github vrutkovs/okd-os \
+    --branch main \
+    --show-build-log always | tee /tmp/build.log && \
+    IMAGE=$(grep "Committing container" -A1 /tmp/build.log | tail -n1 | tr ' ' '\n' | head -n1) && \
+    sed -i "s;INITIAL_IMAGE;${IMAGE};g" ./Dockerfile && \
+    cat Dockerfile

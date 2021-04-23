@@ -2,6 +2,9 @@ only_if: $CIRRUS_BRANCH == "main"
 
 docker_builder:
   name: cosa
+  clone_script:
+    - git clone "{{ OPENSHIFT_BUILD_SOURCE }}" .
+    - git reset --hard "{{ OPENSHIFT_BUILD_REFERENCE }}"
   submodules_script:
     - git submodule init
     - git submodule update

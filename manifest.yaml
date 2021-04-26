@@ -27,8 +27,6 @@ packages:
   - fedora-repos-archive
   # User metrics
   - fedora-coreos-pinger
-  # Updates
-  - zincati
 
 # We include hours/minutes to avoid version number reuse
 automatic-version-prefix: "48.34.<date:%Y%m%d%H%M>"
@@ -37,11 +35,3 @@ automatic-version-suffix: "-"
 mutate-os-release: "4.8"
 
 documentation: false
-
-postprocess:
-  # Disable Zincati
-  - |
-    #!/usr/bin/env bash
-    set -xeuo pipefail
-    mkdir -p /etc/zincati/config.d
-    echo -e '# https://github.com/coreos/fedora-coreos-tracker/issues/163\nupdates.enabled = false' > /etc/zincati/config.d/90-disable-on-non-production-stream.toml

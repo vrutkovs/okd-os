@@ -5,5 +5,6 @@ packages:
 - glusterfs
 - glusterfs-fuse
 - crio
+- cri-tools
 - openshift-hyperkube
 - openshift-clients
